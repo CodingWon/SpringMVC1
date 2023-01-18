@@ -21,7 +21,7 @@
 		
 	<!--db.properties 파일 연결  -->
 	<bean id="preferencesPlaceholderConfigurer" class ="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
-		<property name="locations" value="/WEB-INF/mybatis/db.properties"/> 
+		<property name="locations" value="/WEB-INF/mybatis/dbinfo.properties"/> 
 	</bean>
 	
 </beans>
