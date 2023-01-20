@@ -22,8 +22,9 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+
 	<context:component-scan base-package="kr.narp.myapp" />
-	
-	
+	<context:component-scan base-package="kr.bit.model" />
+
 	
 </beans:beans>
