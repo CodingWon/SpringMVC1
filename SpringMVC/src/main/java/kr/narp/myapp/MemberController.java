@@ -13,7 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import kr.bit.model.MemberDAO;
+import kr.bit.mapper.MemberMapper;
 import kr.bit.model.MemberVO;
 
 /**
@@ -23,14 +23,14 @@ import kr.bit.model.MemberVO;
 public class MemberController {
 	
 	@Autowired
-	private MemberDAO memberDAO;
+	private MemberMapper memberMapper;
 	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
 	
 	@RequestMapping("/memberList.do")
 	public String home(Model model) {
-		List<MemberVO> list = memberDAO.memberList();
+		List<MemberVO> list = memberMapper.memberList();
 		model.addAttribute("list",list);
 		
 		return "memberList";
