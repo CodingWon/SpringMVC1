@@ -82,4 +82,13 @@ public class MemberController {
 		
 		return list; 	//Object -> JSON : @ResponseBody -> API - jackson-databind API , jackson-mapper-asl
 	}
+	
+	@RequestMapping("/form.do")
+	public String form() {
+		
+		return "uploadForm";
+	}
+	
+
+	
 }
