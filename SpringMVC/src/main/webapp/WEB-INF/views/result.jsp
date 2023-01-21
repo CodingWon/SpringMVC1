@@ -9,6 +9,12 @@
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'></script>
+<script type="text/javascript">
+ function getfile(filename){
+	 location.href = "<c:url value='/download.do' />?filename="+filename;
+ }
+
+</script>
 </head>
 <body>
 	<div class="container">
@@ -28,9 +34,15 @@
 	    		<c:forEach var="fName" items="${map.fileList }">
 		    		<tr>
 		    			<td>${fName}</td>
-		    			<td>다운로드</td>
+		    			<td><a href="javascript:getfile('${fName}')"> <span class="glyphicon glyphicon-file"></span></a>
+		    			</td>
 		    		</tr>
 	    		</c:forEach>
+	    		<tr>
+	    			<td colspan="2">
+	    				<a href="<c:url value='/form.do' />">다시 업로드 하기</a>
+	    			</td>
+	    		</tr>
 	    	</table>
 	    </div>
 	  </div>
