@@ -10,8 +10,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script type="text/javascript">
+  	var cnt =1;
   	function file_add(){
-  		var cnt =1;
   		console.log('gdgd');
   		$("#d_file").append("<br>"+"<input type='file' name='file"+cnt+"'/>");
   		cnt++;
