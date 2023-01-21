@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.bit.mapper.MemberMapper;
 import kr.bit.model.MemberVO;
@@ -75,4 +76,10 @@ public class MemberController {
 		return "redirect:/memberList.do";
 	}
 	
+	@RequestMapping("/memberAjaxList.do")
+	public @ResponseBody List<MemberVO> memberAjaxList() {
+		List<MemberVO> list = memberMapper.memberList();
+		
+		return list; 	//Object -> JSON : @ResponseBody -> API - jackson-databind API , jackson-mapper-asl
+	}
 }
