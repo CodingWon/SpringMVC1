@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.bit.mapper.MemberMapper;
 import kr.bit.model.MemberVO;
@@ -29,11 +30,49 @@ public class MemberController {
 	
 	
 	@RequestMapping("/memberList.do")
-	public String home(Model model) {
+	public String memberList(Model model) {
 		List<MemberVO> list = memberMapper.memberList();
 		model.addAttribute("list",list);
 		
 		return "memberList";
+	}
+	
+	
+	@RequestMapping("/memberInsert.do")
+	public String memberInsert(MemberVO vo) {
+		int cnt =memberMapper.memberInsert(vo);
+		return "redirect:/memberList.do";
+	}
+	
+	@RequestMapping("/memberRegister.do")
+	public String memberRegister() {
+		
+		return "memberRegister";
+	}
+	
+	@RequestMapping("/memberDelete.do")
+	public String memberDelete(@RequestParam("num") int num) { // 파라메터를 수집 : num
+		int cnt=memberMapper.memberDelete(num);
+		
+		return "redirect:/memberList.do";
+	}
+	
+	@RequestMapping("/memberContent.do")
+	public String memberContent(int num, Model model) {
+		
+		MemberVO vo=memberMapper.memberContent(num);
+		//객체바인딩
+		model.addAttribute("vo", vo);
+		
+		return "memberContent";
+	}
+	
+	@RequestMapping("/memberUpdate.do")
+	public String memberUpdate(MemberVO vo) {
+		
+		int cnt=memberMapper.memberUpdate(vo);
+		
+		return "redirect:/memberList.do";
 	}
 	
 }
